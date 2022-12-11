@@ -12,21 +12,18 @@ class HomeView extends StatelessWidget {
     return ViewModelBuilder<HomeViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
           body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        child:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-          Spacer(),
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Spacer(),
           SineWavwWidget(
-            waveWidth: double.infinity,
-            waveHeight: 150,
+            waveWidth: MediaQuery.of(context).size.width,
+            waveHeight: MediaQuery.of(context).size.height * 0.3,
             waveColor: Colors.black,
             amplitude: model.value,
             waveMilliseconds: 5000,
             numberOfWave: 6,
           ),
-          Spacer(),
           Slider(
               value: model.value,
               max: 150,

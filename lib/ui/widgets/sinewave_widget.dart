@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class SineWavwWidget extends StatefulWidget {
-  final Color waveColor;
+  final Color? waveColor;
   final double amplitude;
   final double? waveWidth;
   final double? waveHeight;
@@ -11,7 +11,7 @@ class SineWavwWidget extends StatefulWidget {
   final int numberOfWave;
 
   SineWavwWidget({
-    this.waveColor = Colors.red,
+    this.waveColor,
     this.amplitude = 10,
     this.waveWidth,
     this.waveHeight,
@@ -47,27 +47,22 @@ class _WaveWidgetState extends State<SineWavwWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: widget.waveWidth ?? MediaQuery.of(context).size.width,
-          height: widget.waveHeight ?? MediaQuery.of(context).size.height / 3,
-          child: AnimatedBuilder(
-            animation: _animationController!,
-            builder: (context, child) {
-              return CustomPaint(
-                painter: WaveWidgetPainter(
-                  animation: _animationController!,
-                  waveColor: widget.waveColor,
-                  amplitude: widget.amplitude,
-                  numberOfWave: widget.numberOfWave,
-                ),
-              );
-            },
-          ),
-        ),
-      ],
+    return Container(
+      width: widget.waveWidth ?? MediaQuery.of(context).size.width,
+      height: widget.waveHeight ?? MediaQuery.of(context).size.height,
+      child: AnimatedBuilder(
+        animation: _animationController!,
+        builder: (context, child) {
+          return CustomPaint(
+            painter: WaveWidgetPainter(
+              animation: _animationController!,
+              waveColor: widget.waveColor!,
+              amplitude: widget.amplitude,
+              numberOfWave: widget.numberOfWave,
+            ),
+          );
+        },
+      ),
     );
   }
 }
