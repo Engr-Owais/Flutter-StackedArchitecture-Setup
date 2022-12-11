@@ -88,7 +88,10 @@ class WaveWidgetPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     /// Draw wave
-    Paint wavePaint = new Paint()..color = waveColor;
+    Paint wavePaint = new Paint()
+      ..color = waveColor
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2.0;
 
     Path path = Path();
     path.moveTo(0.0, 0.0);
@@ -100,9 +103,6 @@ class WaveWidgetPainter extends CustomPainter {
       );
     }
 
-    path.lineTo(size.width, size.height);
-    path.lineTo(0.0, size.height);
-    path.close();
     canvas.drawPath(path, wavePaint);
   }
 
