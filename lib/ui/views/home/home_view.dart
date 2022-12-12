@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:staced_app_test/ui/widgets/sinewave_widget.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../widgets/hexagon_widget.dart';
 import 'home_viewModel.dart';
 
 class HomeView extends StatelessWidget {
