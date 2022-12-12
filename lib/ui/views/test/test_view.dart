@@ -41,35 +41,42 @@ class TestView extends StatelessWidget {
                 top: MediaQuery.of(context).size.height * 0.39,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 4.0),
-                  child: Container(
+                  child: CustomContainer(
                     height: 60,
                     width: MediaQuery.of(context).size.width / 4,
-                    decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(20)),
+                    containerColor: Colors.black,
+                    text: "Patient",
+                    borderColor: Colors.black,
+                    textColor: Colors.white,
+                    onTap: () {},
                   ),
                 )),
             Positioned(
-                right: MediaQuery.of(context).size.width / 2.7,
-                top: MediaQuery.of(context).size.height * 0.26,
-                child: Container(
-                  height: 60,
-                  width: MediaQuery.of(context).size.width / 4,
-                  decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(20)),
-                )),
+              right: MediaQuery.of(context).size.width / 2.7,
+              top: MediaQuery.of(context).size.height * 0.26,
+              child: CustomContainer(
+                height: 60,
+                width: MediaQuery.of(context).size.width / 4,
+                containerColor: Colors.black,
+                text: "Focused",
+                borderColor: Colors.black,
+                textColor: Colors.white,
+                onTap: () {},
+              ),
+            ),
             Positioned(
                 left: 0.0,
                 top: MediaQuery.of(context).size.height * 0.39,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 4.0),
-                  child: Container(
+                  child: CustomContainer(
                     height: 60,
                     width: MediaQuery.of(context).size.width / 4,
-                    decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(20)),
+                    containerColor: Colors.black,
+                    text: "Strong",
+                    borderColor: Colors.black,
+                    textColor: Colors.white,
+                    onTap: () {},
                   ),
                 )),
             Positioned(
@@ -77,12 +84,14 @@ class TestView extends StatelessWidget {
                 bottom: MediaQuery.of(context).size.height * 0.28,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 4.0),
-                  child: Container(
+                  child: CustomContainer(
                     height: 60,
                     width: MediaQuery.of(context).size.width / 4,
-                    decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(20)),
+                    containerColor: Colors.black,
+                    text: "Competitive",
+                    borderColor: Colors.black,
+                    textColor: Colors.white,
+                    onTap: () {},
                   ),
                 )),
             Positioned(
@@ -90,28 +99,74 @@ class TestView extends StatelessWidget {
                 bottom: MediaQuery.of(context).size.height * 0.28,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 4.0),
-                  child: Container(
+                  child: CustomContainer(
                     height: 60,
                     width: MediaQuery.of(context).size.width / 4,
-                    decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(20)),
+                    containerColor: Colors.white,
+                    text: "Enduring",
+                    borderColor: Colors.black,
+                    textColor: Colors.black,
+                    onTap: () {},
                   ),
                 )),
             Positioned(
                 right: MediaQuery.of(context).size.width / 2.7,
                 bottom: MediaQuery.of(context).size.height * 0.18,
-                child: Container(
+                child: CustomContainer(
                   height: 60,
                   width: MediaQuery.of(context).size.width / 4,
-                  decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(20)),
+                  containerColor: Colors.black,
+                  text: "Centered Warrior",
+                  borderColor: Colors.black,
+                  textColor: Colors.white,
+                  onTap: () {},
                 )),
           ],
         ),
       ),
       viewModelBuilder: () => TestViewModel(),
+    );
+  }
+}
+
+class CustomContainer extends StatelessWidget {
+  final double height;
+  final double width;
+  final Color containerColor;
+  final VoidCallback onTap;
+  final String text;
+  final Color textColor;
+  final Color borderColor;
+  const CustomContainer({
+    Key? key,
+    required this.height,
+    required this.width,
+    required this.containerColor,
+    required this.onTap,
+    required this.text,
+    required this.textColor,
+    required this.borderColor,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: height,
+        width: width,
+        child: Center(
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(color: textColor),
+          ),
+        ),
+        decoration: BoxDecoration(
+            border: Border.all(color: borderColor),
+            color: containerColor,
+            borderRadius: BorderRadius.circular(20)),
+      ),
     );
   }
 }
