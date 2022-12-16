@@ -5,7 +5,10 @@ import 'package:stacked/stacked.dart';
 import '../../widgets/hexagon_widget.dart';
 
 class HexagonView extends StatelessWidget {
-  const HexagonView({Key? key}) : super(key: key);
+  final int? selectedShape;
+  final Color? shapeColor;
+  const HexagonView({Key? key, this.selectedShape, this.shapeColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +39,16 @@ class HexagonView extends StatelessWidget {
                   SizedBox(
                     height: 55,
                   ),
-                  CircleAvatar(
-                    radius: 80,
-                    backgroundColor: Colors.red,
-                  ),
+                  selectedShape == 0
+                      ? CircleAvatar(
+                          radius: 80,
+                          backgroundColor: shapeColor,
+                        )
+                      : Container(
+                          height: 120,
+                          width: 120,
+                          color: shapeColor,
+                        )
                 ],
               ),
             ),
@@ -51,11 +60,17 @@ class HexagonView extends StatelessWidget {
                   child: CustomContainer(
                     height: 60,
                     width: MediaQuery.of(context).size.width / 4,
-                    containerColor: Colors.black,
+                    containerColor: model.selected.contains('Patient')
+                    ? Colors.black
+                    : Colors.white,
                     text: "Patient",
                     borderColor: Colors.black,
-                    textColor: Colors.white,
-                    onTap: () {},
+                    textColor: model.selected.contains('Patient')
+                    ? Colors.white
+                    : Colors.black,
+                    onTap: () {
+                      model.selectChoice("Patient");
+                    },
                   ),
                 )),
             Positioned(
@@ -64,11 +79,17 @@ class HexagonView extends StatelessWidget {
               child: CustomContainer(
                 height: 60,
                 width: MediaQuery.of(context).size.width / 4,
-                containerColor: Colors.black,
+                containerColor: model.selected.contains('Focused')
+                    ? Colors.black
+                    : Colors.white,
                 text: "Focused",
                 borderColor: Colors.black,
-                textColor: Colors.white,
-                onTap: () {},
+                textColor: model.selected.contains('Focused')
+                    ? Colors.white
+                    : Colors.black,
+                onTap: () {
+                  model.selectChoice("Focused");
+                },
               ),
             ),
             Positioned(
@@ -79,11 +100,17 @@ class HexagonView extends StatelessWidget {
                   child: CustomContainer(
                     height: 60,
                     width: MediaQuery.of(context).size.width / 4,
-                    containerColor: Colors.black,
+                    containerColor: model.selected.contains('Strong')
+                        ? Colors.black
+                        : Colors.white,
                     text: "Strong",
                     borderColor: Colors.black,
-                    textColor: Colors.white,
-                    onTap: () {},
+                    textColor: model.selected.contains('Strong')
+                        ? Colors.white
+                        : Colors.black,
+                    onTap: () {
+                      model.selectChoice("Strong");
+                    },
                   ),
                 )),
             Positioned(
@@ -94,11 +121,17 @@ class HexagonView extends StatelessWidget {
                   child: CustomContainer(
                     height: 60,
                     width: MediaQuery.of(context).size.width / 4,
-                    containerColor: Colors.black,
+                    containerColor: model.selected.contains('Competitive')
+                        ? Colors.black
+                        : Colors.white,
                     text: "Competitive",
                     borderColor: Colors.black,
-                    textColor: Colors.white,
-                    onTap: () {},
+                    textColor: model.selected.contains('Competitive')
+                        ? Colors.white
+                        : Colors.black,
+                    onTap: () {
+                      model.selectChoice("Competitive");
+                    },
                   ),
                 )),
             Positioned(
@@ -109,11 +142,17 @@ class HexagonView extends StatelessWidget {
                   child: CustomContainer(
                     height: 60,
                     width: MediaQuery.of(context).size.width / 4,
-                    containerColor: Colors.white,
+                    containerColor: model.selected.contains('Enduring')
+                        ? Colors.black
+                      : Colors.white,
                     text: "Enduring",
                     borderColor: Colors.black,
-                    textColor: Colors.black,
-                    onTap: () {},
+                    textColor: model.selected.contains('Enduring')
+                        ? Colors.white
+                        : Colors.black,
+                    onTap: () {
+                      model.selectChoice("Enduring");
+                    },
                   ),
                 )),
             Positioned(
@@ -122,11 +161,17 @@ class HexagonView extends StatelessWidget {
                 child: CustomContainer(
                   height: 60,
                   width: MediaQuery.of(context).size.width / 4,
-                  containerColor: Colors.black,
+                  containerColor: model.selected.contains('Centered Warrior')
+                      ? Colors.black
+                      : Colors.white,
                   text: "Centered Warrior",
                   borderColor: Colors.black,
-                  textColor: Colors.white,
-                  onTap: () {},
+                  textColor: model.selected.contains('Centered Warrior')
+                      ? Colors.white
+                      : Colors.black,
+                  onTap: () {
+                    model.selectChoice("Centered Warrior");
+                  },
                 )),
           ],
         ),

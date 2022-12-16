@@ -31,7 +31,7 @@ class MenuView extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    model.navigateToHexagon();
+                    model.navigateToSelectShape();
                   },
                   child: Text("GO TO HEXAGON"),
                 ),
