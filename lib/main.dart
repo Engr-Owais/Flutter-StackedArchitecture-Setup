@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:staced_app_test/app/app.locator.dart';
-import 'package:staced_app_test/ui/views/test/test_view.dart';
+import 'package:staced_app_test/ui/views/hexagon/hexagon_view.dart';
+import 'package:stacked_services/stacked_services.dart';
+
+import 'app/app.router.dart';
 // import 'package:stacked_services/stacked_services.dart';
 
 // import 'app/app.router.dart';
@@ -20,10 +23,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
       ),
-      // navigatorKey: StackedService.navigatorKey,
-      // onGenerateRoute: StackedRouter().onGenerateRoute,
-
-      home: TestView(),
+      navigatorKey: StackedService.navigatorKey,
+      onGenerateRoute: StackedRouter().onGenerateRoute,
     );
   }
 }

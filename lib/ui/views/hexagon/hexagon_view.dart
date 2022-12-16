@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:staced_app_test/ui/views/test/test_viewModel.dart';
+import 'package:staced_app_test/ui/views/hexagon/hexagon_viewModel.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../widgets/hexagon_widget.dart';
 
-class TestView extends StatelessWidget {
-  const TestView({Key? key}) : super(key: key);
+class HexagonView extends StatelessWidget {
+  const HexagonView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<TestViewModel>.reactive(
+    return ViewModelBuilder<HexagonViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                model.back();
+              },
+              icon: Icon(Icons.arrow_back_ios)),
+        ),
         body: Stack(
           children: [
             Center(
@@ -38,7 +45,7 @@ class TestView extends StatelessWidget {
             ),
             Positioned(
                 right: 0.0,
-                top: MediaQuery.of(context).size.height * 0.39,
+                top: MediaQuery.of(context).size.height * 0.32,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 4.0),
                   child: CustomContainer(
@@ -53,7 +60,7 @@ class TestView extends StatelessWidget {
                 )),
             Positioned(
               right: MediaQuery.of(context).size.width / 2.7,
-              top: MediaQuery.of(context).size.height * 0.26,
+              top: MediaQuery.of(context).size.height * 0.18,
               child: CustomContainer(
                 height: 60,
                 width: MediaQuery.of(context).size.width / 4,
@@ -66,7 +73,7 @@ class TestView extends StatelessWidget {
             ),
             Positioned(
                 left: 0.0,
-                top: MediaQuery.of(context).size.height * 0.39,
+                top: MediaQuery.of(context).size.height * 0.32,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 4.0),
                   child: CustomContainer(
@@ -81,7 +88,7 @@ class TestView extends StatelessWidget {
                 )),
             Positioned(
                 left: 0.0,
-                bottom: MediaQuery.of(context).size.height * 0.28,
+                bottom: MediaQuery.of(context).size.height * 0.22,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 4.0),
                   child: CustomContainer(
@@ -96,7 +103,7 @@ class TestView extends StatelessWidget {
                 )),
             Positioned(
                 right: 0.0,
-                bottom: MediaQuery.of(context).size.height * 0.28,
+                bottom: MediaQuery.of(context).size.height * 0.22,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 4.0),
                   child: CustomContainer(
@@ -111,7 +118,7 @@ class TestView extends StatelessWidget {
                 )),
             Positioned(
                 right: MediaQuery.of(context).size.width / 2.7,
-                bottom: MediaQuery.of(context).size.height * 0.18,
+                bottom: MediaQuery.of(context).size.height * 0.11,
                 child: CustomContainer(
                   height: 60,
                   width: MediaQuery.of(context).size.width / 4,
@@ -124,7 +131,7 @@ class TestView extends StatelessWidget {
           ],
         ),
       ),
-      viewModelBuilder: () => TestViewModel(),
+      viewModelBuilder: () => HexagonViewModel(),
     );
   }
 }
