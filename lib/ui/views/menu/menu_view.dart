@@ -44,6 +44,15 @@ class MenuView extends StatelessWidget {
                   },
                   child: Text("CIRCLE OR SQUARE"),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    model.navigateToWordsList();
+                  },
+                  child: Text("LIST OF WORDS"),
+                ),
               ]),
         ),
       ),
