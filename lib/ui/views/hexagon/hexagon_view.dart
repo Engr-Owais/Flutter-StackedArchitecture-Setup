@@ -26,7 +26,7 @@ class HexagonView extends StatelessWidget {
             Center(
               child: Container(
                 width: MediaQuery.of(context).size.width / 1.3,
-                height: MediaQuery.of(context).size.height * 0.45,
+                height: MediaQuery.of(context).size.height * 0.40,
                 child: CustomPaint(
                   painter: RPSCustomPainter(),
                 ),
@@ -58,16 +58,16 @@ class HexagonView extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(right: 4.0),
                   child: CustomContainer(
-                    height: 60,
+                    height: 40,
                     width: MediaQuery.of(context).size.width / 4,
                     containerColor: model.selected.contains('Patient')
-                    ? Colors.black
-                    : Colors.white,
+                        ? Colors.black
+                        : Colors.white,
                     text: "Patient",
                     borderColor: Colors.black,
                     textColor: model.selected.contains('Patient')
-                    ? Colors.white
-                    : Colors.black,
+                        ? Colors.white
+                        : Colors.black,
                     onTap: () {
                       model.selectChoice("Patient");
                     },
@@ -75,9 +75,9 @@ class HexagonView extends StatelessWidget {
                 )),
             Positioned(
               right: MediaQuery.of(context).size.width / 2.7,
-              top: MediaQuery.of(context).size.height * 0.18,
+              top: MediaQuery.of(context).size.height * 0.2,
               child: CustomContainer(
-                height: 60,
+                height: 40,
                 width: MediaQuery.of(context).size.width / 4,
                 containerColor: model.selected.contains('Focused')
                     ? Colors.black
@@ -98,7 +98,7 @@ class HexagonView extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 4.0),
                   child: CustomContainer(
-                    height: 60,
+                    height: 40,
                     width: MediaQuery.of(context).size.width / 4,
                     containerColor: model.selected.contains('Strong')
                         ? Colors.black
@@ -115,11 +115,11 @@ class HexagonView extends StatelessWidget {
                 )),
             Positioned(
                 left: 0.0,
-                bottom: MediaQuery.of(context).size.height * 0.22,
+                bottom: MediaQuery.of(context).size.height * 0.23,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 4.0),
                   child: CustomContainer(
-                    height: 60,
+                    height: 40,
                     width: MediaQuery.of(context).size.width / 4,
                     containerColor: model.selected.contains('Competitive')
                         ? Colors.black
@@ -136,15 +136,15 @@ class HexagonView extends StatelessWidget {
                 )),
             Positioned(
                 right: 0.0,
-                bottom: MediaQuery.of(context).size.height * 0.22,
+                bottom: MediaQuery.of(context).size.height * 0.23,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 4.0),
                   child: CustomContainer(
-                    height: 60,
+                    height: 40,
                     width: MediaQuery.of(context).size.width / 4,
                     containerColor: model.selected.contains('Enduring')
                         ? Colors.black
-                      : Colors.white,
+                        : Colors.white,
                     text: "Enduring",
                     borderColor: Colors.black,
                     textColor: model.selected.contains('Enduring')
@@ -157,9 +157,9 @@ class HexagonView extends StatelessWidget {
                 )),
             Positioned(
                 right: MediaQuery.of(context).size.width / 2.7,
-                bottom: MediaQuery.of(context).size.height * 0.11,
+                bottom: MediaQuery.of(context).size.height * 0.16,
                 child: CustomContainer(
-                  height: 60,
+                  height: 40,
                   width: MediaQuery.of(context).size.width / 4,
                   containerColor: model.selected.contains('Centered Warrior')
                       ? Colors.black

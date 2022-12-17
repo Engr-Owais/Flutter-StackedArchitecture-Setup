@@ -34,24 +34,50 @@ class SinewaveView extends StatelessWidget {
               ),
               Column(
                 children: [
-                  Slider(
-                      value: model.value,
-                      max: 120,
-                      min: 0,
-                      inactiveColor: Colors.amber,
-                      activeColor: Colors.black,
+                  Container(
+                    padding: EdgeInsets.only(right: 20.0),
+                    width: MediaQuery.of(context).size.width,
+                    child: Text(
+                      "VERY FRIENDLY",
+                      textAlign: TextAlign.end,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      activeTrackColor: Colors.black,
+                      inactiveTrackColor: Colors.grey,
+                      trackShape: RectangularSliderTrackShape(),
+                      trackHeight: 2.0,
                       thumbColor: Colors.black,
-                      onChanged: (value) {
-                        model.changeAmplitude(value);
-                      }),
+                      thumbShape:
+                          RoundSliderThumbShape(enabledThumbRadius: 12.0),
+                      overlayColor: Colors.red.withAlpha(32),
+                      overlayShape:
+                          RoundSliderOverlayShape(overlayRadius: 28.0),
+                    ),
+                    child: Slider(
+                        value: model.value,
+                        max: 120,
+                        min: 0,
+                        onChanged: (value) {
+                          model.changeAmplitude(value);
+                        }),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text("MIN"),
+                      Text(
+                        "LOW",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width / 2,
                       ),
-                      Text("MAX"),
+                      Text(
+                        "HIGH",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     ],
                   ),
                 ],
