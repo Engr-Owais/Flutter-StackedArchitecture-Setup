@@ -31,9 +31,18 @@ class MenuView extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    model.navigateToSelectShape();
+                    model.navigateToHexagon();
                   },
                   child: Text("GO TO HEXAGON"),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    model.navigateToSelectShape();
+                  },
+                  child: Text("CIRCLE OR SQUARE"),
                 ),
               ]),
         ),

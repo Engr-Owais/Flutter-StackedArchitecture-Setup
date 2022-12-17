@@ -26,9 +26,9 @@ class SinewaveView extends StatelessWidget {
               Spacer(),
               SineWavwWidget(
                 waveWidth: MediaQuery.of(context).size.width,
-                waveHeight: MediaQuery.of(context).size.height * 0.3,
+                waveHeight: MediaQuery.of(context).size.height * 0.2,
                 waveColor: Colors.black,
-                amplitude: model.value,
+                amplitude: model.amplitude,
                 waveMilliseconds: 5000,
                 numberOfWave: 6,
               ),
@@ -38,7 +38,11 @@ class SinewaveView extends StatelessWidget {
                     padding: EdgeInsets.only(right: 20.0),
                     width: MediaQuery.of(context).size.width,
                     child: Text(
-                      "VERY FRIENDLY",
+                      model.amplitude == 0.0
+                          ? "NO ENERGY"
+                          : model.amplitude.round() == 56
+                              ? "FRIENDLY"
+                              : "VERY FRIENDLY",
                       textAlign: TextAlign.end,
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
@@ -57,7 +61,7 @@ class SinewaveView extends StatelessWidget {
                           RoundSliderOverlayShape(overlayRadius: 28.0),
                     ),
                     child: Slider(
-                        value: model.value,
+                        value: model.amplitude,
                         max: 120,
                         min: 0,
                         onChanged: (value) {

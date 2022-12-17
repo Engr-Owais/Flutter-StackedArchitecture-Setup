@@ -11,8 +11,11 @@ class MenuViewModel extends BaseViewModel {
     _navigationService.navigateTo(Routes.homeView);
   }
 
-  
-   void navigateToSelectShape() {
+  void navigateToSelectShape() {
     _navigationService.navigateToView(SelectShapeView());
+  }
+
+  void navigateToHexagon() {
+    _navigationService.navigateTo(Routes.testView);
   }
 }

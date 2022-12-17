@@ -1,3 +1,4 @@
+import 'package:staced_app_test/services/hexagon_service.dart';
 import 'package:staced_app_test/ui/views/home/sinewave.dart';
 import 'package:staced_app_test/ui/views/hexagon/hexagon_view.dart';
 import 'package:staced_app_test/ui/views/menu/menu_view.dart';
@@ -12,6 +13,7 @@ import 'package:stacked_services/stacked_services.dart';
   ],
   dependencies: [
     LazySingleton(classType: NavigationService),
+    LazySingleton(classType: HexagonService),
   ],
 )
 class AppSetup {}

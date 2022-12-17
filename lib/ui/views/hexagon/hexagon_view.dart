@@ -39,15 +39,39 @@ class HexagonView extends StatelessWidget {
                   SizedBox(
                     height: 55,
                   ),
-                  selectedShape == 0
-                      ? CircleAvatar(
-                          radius: 80,
-                          backgroundColor: shapeColor,
+                  model.selectedShape == 0
+                      ? Container(
+                          decoration: BoxDecoration(
+                            color: Colors.amberAccent.shade100,
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.black, width: 3.0),
+                            boxShadow: [
+                              BoxShadow(
+                                  offset: Offset(8, 4.0),
+                                  blurRadius: 5,
+                                  color: Colors.black,
+                                  spreadRadius: 0)
+                            ],
+                          ),
+                          child: CircleAvatar(
+                            radius: 60,
+                            backgroundColor: Colors.amber.shade100,
+                          ),
                         )
                       : Container(
+                          decoration: BoxDecoration(
+                            color: Colors.amber.shade100,
+                            border: Border.all(color: Colors.black, width: 3.0),
+                            boxShadow: [
+                              BoxShadow(
+                                  offset: Offset(8, 4.0),
+                                  blurRadius: 5,
+                                  color: Colors.black,
+                                  spreadRadius: 0)
+                            ],
+                          ),
                           height: 120,
                           width: 120,
-                          color: shapeColor,
                         )
                 ],
               ),

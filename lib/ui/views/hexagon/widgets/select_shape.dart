@@ -28,40 +28,62 @@ class SelectShapeView extends StatelessWidget {
                           return GestureDetector(
                             onTap: () {
                               model.selectShape(index);
-                              print(model.selectedItem);
+                              print(model.selected);
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: CircleAvatar(
-                                  backgroundColor: index == model.selectedItem
-                                      ? Colors.red
-                                      : Colors.blue,
-                                  radius: 60,
-                                  child: index == model.selectedItem
-                                      ? Center(
-                                          child: Icon(
-                                            Icons.check_circle,
-                                            color: Colors.black,
-                                          ),
-                                        )
-                                      : null),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                      color: Colors.black, width: 3.0),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        offset: Offset(8, 4.0),
+                                        blurRadius: 5,
+                                        color: Colors.black,
+                                        spreadRadius: 0)
+                                  ],
+                                ),
+                                child: CircleAvatar(
+                                    backgroundColor:
+                                        Colors.amberAccent.shade100,
+                                    radius: 60,
+                                    child: index == model.selectedShape
+                                        ? Center(
+                                            child: Icon(
+                                              Icons.check_circle,
+                                              color: Colors.black,
+                                            ),
+                                          )
+                                        : null),
+                              ),
                             ),
                           );
                         } else {
                           return GestureDetector(
                             onTap: () {
                               model.selectShape(index);
-                              print(model.selectedItem);
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.amberAccent.shade100,
+                                    border: Border.all(
+                                        color: Colors.black, width: 3.0),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          offset: Offset(8, 4.0),
+                                          blurRadius: 5,
+                                          color: Colors.black,
+                                          spreadRadius: 0)
+                                    ],
+                                  ),
                                   height: 120,
                                   width: 120,
-                                  color: index == model.selectedItem
-                                      ? Colors.red
-                                      : Colors.blue,
-                                  child: index == model.selectedItem
+                                  child: index == model.selectedShape
                                       ? Center(
                                           child: Icon(
                                             Icons.check_circle,
@@ -73,44 +95,19 @@ class SelectShapeView extends StatelessWidget {
                           );
                         }
                       }))),
-              SizedBox(
-                height: 20,
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ElevatedButton(
+                        onPressed: () {
+                          model.back();
+                        },
+                        child: Text("DONE")),
+                  ],
+                ),
               ),
-              ElevatedButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Text('Pick a color!'),
-                          content: SingleChildScrollView(
-                            child: ColorPicker(
-                              pickerColor: model.color,
-                              onColorChanged: (value) =>
-                                  model.changeColor(value),
-                            ),
-                          ),
-                          actions: <Widget>[
-                            ElevatedButton(
-                              child: const Text('Got it'),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  },
-                  child: Text("CHANGE COLOR")),
-              SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    model.navigateToHexagon();
-                  },
-                  child: Text("Done")),
             ],
           ),
         ),
